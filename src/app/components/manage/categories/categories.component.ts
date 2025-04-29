@@ -9,6 +9,8 @@ import { CategoryService } from '../../../services/category.service';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-categories',
   imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule , MatButtonModule,RouterLink],
@@ -53,5 +55,17 @@ export class CategoriesComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  deletes(id : string){
+    // console.log("delete __ id" , id)
+
+    this.categoryService.deleteCategories(id).subscribe((result : any) => {
+      alert("Category Deleted")
+
+      console.log("===> " , this.dataSource.data)
+
+      this.dataSource.data = this.dataSource.data.filter(item => item._id !== id);
+    })
   }
 }

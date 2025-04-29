@@ -20,7 +20,7 @@
   <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
   <td mat-cell *matCellDef="let row">
     <button mat-raised-button color="warn" style="margin-left: 8px;"  [routerLink]="'/admin/category/' + row._id">Edit</button>
-    <button mat-raised-button color="warn" style="margin-left: 8px;">Delete</button>
+    <button mat-raised-button color="warn" style="margin-left: 8px;" (click)="deletes(row._id)">Delete</button>
   </td>
 </ng-container>
 

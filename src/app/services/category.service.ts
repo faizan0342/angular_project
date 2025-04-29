@@ -31,4 +31,10 @@ export class CategoryService {
     })
   }
 
+  deleteCategories(id:String , name : string ){
+    return this.http.put("http://localhost:3000/category/" + id , {
+      name : name
+    })
+  }
+
 }
